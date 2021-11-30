@@ -21,7 +21,7 @@ namespace nc
 	{
 		IMG_Quit();
 		TTF_Quit();
-		SDL_DestroyRenderer(renderer);
+		SDL_GL_DeleteContext(context);
 		SDL_DestroyWindow(window);
 
 	}
@@ -33,68 +33,41 @@ namespace nc
 
 	void Renderer::Create(const std::string& name, int width, int height)
 	{
-		window = SDL_CreateWindow("GAT150", 100, 100, 800, 600, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
+		window = SDL_CreateWindow("GAT150", 100, 100, 800, 600, SDL_WINDOW_OPENGL);
 		if (window == nullptr)
 		{
 			std::cout << "SDL_CreateWindow Error: " << SDL_GetError() << std::endl;
 			SDL_Quit();
 		}
 
-		renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_ACCELERATED);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+		SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_COMPATIBILITY);
+
+		SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+		SDL_GL_SetAttribute(SDL_GL_ACCELERATED_VISUAL, 1);
+		SDL_GL_SetSwapInterval(1);
+
+		context = SDL_GL_CreateContext(window);
+
+		if (!gladLoadGL())
+		{
+			SDL_Log("Failed to create OpenGL context");
+
+			exit(-1);
+		}
+
+		glEnable(GL_DEPTH_TEST);
 	}
 
 	void Renderer::BeginFrame()
 	{
-		SDL_RenderClear(renderer);
+		glClearColor(0, 0, 0, 1);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 
 	void Renderer::EndFrame()
 	{
-		SDL_RenderPresent(renderer);
-	}
-
-	void Renderer::Draw(std::shared_ptr<nc::Texture> texture, const Vector2& position, float angle, const Vector2& scale)
-	{
-		Vector2 size = texture->GetSize();
-		size = size * scale;
-		Vector2 newPosition = position - (size * 0.5f);
-
-		SDL_Rect dest;
-		dest.x = static_cast<int>(newPosition.x);
-		dest.y = static_cast<int>(newPosition.y);
-		dest.w = static_cast<int>(size.x);
-		dest.h = static_cast<int>(size.y);
-
-		SDL_RenderCopyEx(renderer, texture->texture, nullptr, &dest, nc::RadToDeg(angle), nullptr, SDL_FLIP_NONE);
-	}
-
-	void Renderer::Draw(std::shared_ptr<nc::Texture> texture, const Transform& transform)
-	{
-		Vector2 size = texture->GetSize();
-		size = size * transform.scale;
-		Vector2 newPosition = transform.position - (size * 0.5f);
-
-		SDL_Rect dest;
-		dest.x = static_cast<int>(newPosition.x);
-		dest.y = static_cast<int>(newPosition.y);
-		dest.w = static_cast<int>(size.x);
-		dest.h = static_cast<int>(size.y);
-
-		SDL_RenderCopyEx(renderer, texture->texture, nullptr, &dest, nc::RadToDeg(transform.rotation), nullptr, SDL_FLIP_NONE);
-	}
-
-	void Renderer::Draw(std::shared_ptr<nc::Texture> texture, const SDL_Rect source, const Transform& transform)
-	{
-		Vector2 size = Vector2{ source.w, source.h };
-		size = size * transform.scale;
-		Vector2 newPosition = transform.position - (size * 0.5f);
-
-		SDL_Rect dest;
-		dest.x = static_cast<int>(newPosition.x);
-		dest.y = static_cast<int>(newPosition.y);
-		dest.w = static_cast<int>(size.x);
-		dest.h = static_cast<int>(size.y);
-
-		SDL_RenderCopyEx(renderer, texture->texture, &source, &dest, nc::RadToDeg(transform.rotation), nullptr, SDL_FLIP_NONE);
+		SDL_GL_SwapWindow(window);
 	}
 }

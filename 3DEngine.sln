@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Application", "Application\Application.vcxproj", "{313F87A0-E593-4120-98B2-A174AE859A98}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "..\Gat150\Engine\Engine.vcxproj", "{B0109FC7-2B75-47E6-BA59-F14267784611}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcxproj", "{B0109FC7-2B75-47E6-BA59-F14267784611}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Resources">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Source">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
@@ -39,9 +35,6 @@
     <Filter Include="Source\Components">
       <UniqueIdentifier>{ef6523d7-2827-4778-b7bf-d0436a926cfa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Physics">
-      <UniqueIdentifier>{29d5263e-f91c-41d8-a15a-2c34d7344f0c}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -50,16 +43,10 @@
     <ClCompile Include="Framework\EventSystem.cpp">
       <Filter>Source\Framework</Filter>
     </ClCompile>
-    <ClCompile Include="Math\Color.cpp">
-      <Filter>Source\Math</Filter>
-    </ClCompile>
     <ClCompile Include="Math\Random.cpp">
       <Filter>Source\Math</Filter>
     </ClCompile>
     <ClCompile Include="Math\Transform.cpp">
-      <Filter>Source\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="Math\Vector2.cpp">
       <Filter>Source\Math</Filter>
     </ClCompile>
     <ClCompile Include="Object\Scene.cpp">
@@ -86,17 +73,11 @@
     <ClCompile Include="Core\Timer.cpp">
       <Filter>Source\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Graphics\ParticleSystem.cpp">
-      <Filter>Source\Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="Audio\AudioSystem.cpp">
       <Filter>Source\Audio</Filter>
     </ClCompile>
     <ClCompile Include="Audio\AudioChannel.cpp">
       <Filter>Source\Audio</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Font.cpp">
-      <Filter>Source\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Core\Utilities.cpp">
       <Filter>Source\Core</Filter>
@@ -104,13 +85,7 @@
     <ClCompile Include="Files\File.cpp">
       <Filter>Source\Files</Filter>
     </ClCompile>
-    <ClCompile Include="Components\SpriteComponent.cpp">
-      <Filter>Source\Components</Filter>
-    </ClCompile>
     <ClCompile Include="Components\PhysicsComponent.cpp">
-      <Filter>Source\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Components\SpriteAnimationComponent.cpp">
       <Filter>Source\Components</Filter>
     </ClCompile>
     <ClCompile Include="Core\Json.cpp">
@@ -119,23 +94,38 @@
     <ClCompile Include="Components\GraphicsComponent.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Components\RBPhysicsComponent.cpp">
-      <Filter>Source\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Physics\PhysicsSystem.cpp">
-      <Filter>Source\Physics</Filter>
-    </ClCompile>
     <ClCompile Include="Components\AudioComponent.cpp">
       <Filter>Source\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Components\TextComponent.cpp">
+    <ClCompile Include="..\ThirdParty\glad\src\glad.c">
+      <Filter>Source\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Shader.cpp">
+      <Filter>Source\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Program.cpp">
+      <Filter>Source\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Material.cpp">
+      <Filter>Source\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\VertexBuffer.cpp">
+      <Filter>Source\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\VertexIndexBuffer.cpp">
+      <Filter>Source\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\CameraComponent.cpp">
       <Filter>Source\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Physics\ContactListener.cpp">
-      <Filter>Source\Physics</Filter>
+    <ClCompile Include="Components\MeshComponent.cpp">
+      <Filter>Source\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Object\TileMap.cpp">
-      <Filter>Source\Object</Filter>
+    <ClCompile Include="Components\FreeCameraController.cpp">
+      <Filter>Source\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\LightComponent.cpp">
+      <Filter>Source\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -145,25 +135,13 @@
     <ClInclude Include="Framework\System.h">
       <Filter>Source\Framework</Filter>
     </ClInclude>
-    <ClInclude Include="Math\Color.h">
-      <Filter>Source\Math</Filter>
-    </ClInclude>
     <ClInclude Include="Math\MathUtils.h">
-      <Filter>Source\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\Matrix22.h">
-      <Filter>Source\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\Matrix33.h">
       <Filter>Source\Math</Filter>
     </ClInclude>
     <ClInclude Include="Math\Random.h">
       <Filter>Source\Math</Filter>
     </ClInclude>
     <ClInclude Include="Math\Transform.h">
-      <Filter>Source\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\Vector2.h">
       <Filter>Source\Math</Filter>
     </ClInclude>
     <ClInclude Include="Object\Object.h">
@@ -199,17 +177,11 @@
     <ClInclude Include="Core\Timer.h">
       <Filter>Source\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics\ParticleSystem.h">
-      <Filter>Source\Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="Audio\AudioSystem.h">
       <Filter>Source\Audio</Filter>
     </ClInclude>
     <ClInclude Include="Audio\AudioChannel.h">
       <Filter>Source\Audio</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Font.h">
-      <Filter>Source\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Core\Utilities.h">
       <Filter>Source\Core</Filter>
@@ -223,13 +195,7 @@
     <ClInclude Include="Components\GraphicsComponent.h">
       <Filter>Source\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Components\SpriteComponent.h">
-      <Filter>Source\Components</Filter>
-    </ClInclude>
     <ClInclude Include="Components\PhysicsComponent.h">
-      <Filter>Source\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Components\SpriteAnimationComponent.h">
       <Filter>Source\Components</Filter>
     </ClInclude>
     <ClInclude Include="Framework\Singleton.h">
@@ -244,34 +210,38 @@
     <ClInclude Include="Core\Serializable.h">
       <Filter>Source\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Components\RBPhysicsComponent.h">
-      <Filter>Source\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Physics\PhysicsSystem.h">
-      <Filter>Source\Physics</Filter>
-    </ClInclude>
     <ClInclude Include="Components\AudioComponent.h">
       <Filter>Source\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Components\TextComponent.h">
+    <ClInclude Include="Math\MathTypes.h">
+      <Filter>Source\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Shader.h">
+      <Filter>Source\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Program.h">
+      <Filter>Source\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Material.h">
+      <Filter>Source\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\VertexBuffer.h">
+      <Filter>Source\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\VertexIndexBuffer.h">
+      <Filter>Source\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\CameraComponent.h">
       <Filter>Source\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Physics\ContactListener.h">
-      <Filter>Source\Physics</Filter>
+    <ClInclude Include="Components\MeshComponent.h">
+      <Filter>Source\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Object\TileMap.h">
-      <Filter>Source\Object</Filter>
+    <ClInclude Include="Components\FreeCameraController.h">
+      <Filter>Source\Components</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\Build\Resources\scene.txt">
-      <Filter>Resources</Filter>
-    </Text>
-    <Text Include="..\Build\Resources\map.txt">
-      <Filter>Resources</Filter>
-    </Text>
-    <Text Include="..\Build\Resources\title.txt">
-      <Filter>Resources</Filter>
-    </Text>
+    <ClInclude Include="Components\LightComponent.h">
+      <Filter>Source\Components</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

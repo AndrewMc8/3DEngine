@@ -1,29 +1,37 @@
 #pragma once
-#include "Matrix33.h"
+#include "Math/MathTypes.h"
 #include "Core/Serializable.h"
 
 namespace nc
 {
 	struct Transform : public ISerializable
 	{
-		Vector2 position;
-		float rotation{ 0 };
-		Vector2 scale{ 1 };
+		glm::vec3 position{ 0 };
+		glm::vec3 rotation{ 0 };
+		glm::vec3 scale{ 1 };
 
-		Vector2 localPosition;
-		float localRotation{ 0 };
-		Vector2 localScale{ 1 };
+		/*glm::mat4 mxt = glm::translate(position);
+		glm::mat4 mxr = glm::eulerAngleYXZ(rotation.y, rotation.x, rotation.z);
+		glm::mat4 mxs = glm::translate(scale);
 
-		Matrix33 matrix;
+		matrix = mxt * mxr * mxs;*/
+
+		glm::vec3 localPosition{ 0 };
+		glm::vec3 localRotation{ 0 };
+		glm::vec3 localScale{ 1 };
+
+		glm::mat4 matrix{ 1 };
 
 		Transform() {}
-		Transform(const Vector2& position, float rotation = 0, float scale = 1) : position{ position }, rotation{ rotation }, scale{ scale } {}
+		Transform(const glm::vec3& position, const glm::vec3& rotation = glm::vec3{ 0 }, const glm::vec3& scale = glm::vec3{ 1 }) :
+			position{ position }, rotation{ rotation }, scale{ scale } {}
 
 		void Update();
-		void Update(const Matrix33& mx);
+		void Update(const glm::mat4& mx);
 
-		// Inherited via ISerializable
 		virtual bool Write(const rapidjson::Value& value) const override;
 		virtual bool Read(const rapidjson::Value& value) override;
+
+		static void DecomposeTransform(const Transform& transform, glm::vec3& position, glm::vec3& rotation, glm::vec3& scale);
 	};
 }

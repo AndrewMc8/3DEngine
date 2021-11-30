@@ -16,33 +16,31 @@
 #include "Input/InputSystem.h"
 
 //math
-#include "Math/Vector2.h"
-#include "Math/Color.h"
+#include "Math/MathTypes.h"
 #include "Math/Random.h"
 #include "Math/MathUtils.h"
 #include "Math/Transform.h"
 
 //graphics
+#include "Graphics/Material.h"
+#include "Graphics/Program.h"
 #include "Graphics/Renderer.h"
+#include "Graphics/Shader.h"
 #include "Graphics/Texture.h"
-#include "Graphics/ParticleSystem.h"
-#include "Graphics/Font.h"
-
-//physics
-#include "Physics/PhysicsSystem.h"
+#include "Graphics/VertexBuffer.h"
+#include "Graphics/VertexIndexBuffer.h"
 
 //objects
 #include "Object/Actor.h"
 #include "Object/Scene.h"
-#include "Object/TileMap.h"
 
 //components
-#include "Components/SpriteComponent.h"
 #include "Components/PhysicsComponent.h"
-#include "Components/SpriteAnimationComponent.h"
-#include "Components/RBPhysicsComponent.h"
 #include "Components/AudioComponent.h"
-#include "Components/TextComponent.h"
+#include "Components/GraphicsComponent.h"
+#include "Components/CameraComponent.h"
+#include "Components/MeshComponent.h"
+#include "Components/FreeCameraController.h"
 
 //Framework
 #include "Framework/EventSystem.h"

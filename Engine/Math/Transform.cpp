@@ -4,34 +4,19 @@ namespace nc
 {
 	void Transform::Update()
 	{
-		Matrix33 mxs;
-		mxs.Scale(scale);
+		glm::mat4 mxt = glm::translate(position);
+		glm::mat4 mxr = glm::eulerAngleYXZ(rotation.y, rotation.x, rotation.z);
+		glm::mat4 mxs = glm::scale(scale);
 
-		Matrix33 mxr;
-		mxr.Rotate(rotation);
-
-		Matrix33 mxt;
-		mxt.Translate(position);
-
-		matrix = mxs * mxr * mxt;
+		matrix = mxt * mxr * mxs;
 	}
 
-	void Transform::Update(const Matrix33& mx)
+	void Transform::Update(const glm::mat4& mx)
 	{
-		Matrix33 mxs;
-		mxs.Scale(localScale);
+		Update();
 
-		Matrix33 mxr;
-		mxr.Rotate(localRotation);
-
-		Matrix33 mxt;
-		mxt.Translate(localPosition);
-
-		matrix = mxs * mxr * mxt * mx;
-
-		position = matrix.GetTranslate();
-		rotation = matrix.GetRotate();
-		scale = matrix.GetSacle();
+		// multiply matrix by parent matrix
+		matrix = mx * matrix;
 	}
 
 	bool Transform::Write(const rapidjson::Value& value) const
@@ -45,6 +30,13 @@ namespace nc
 		JSON_READ(value, rotation);
 		JSON_READ(value, scale);
 
-		return false;
+		return true;
+	}
+
+	void Transform::DecomposeTransform(const Transform& transform, glm::vec3& position, glm::vec3& rotation, glm::vec3& scale)
+	{
+		position = glm::vec3{ transform.matrix[3] };
+		scale = glm::vec3{ transform.matrix[0][0], transform.matrix[1][1], transform.matrix[2][2] };
+		glm::extractEulerAngleYXZ(transform.matrix, rotation.y, rotation.x, rotation.z);
 	}
 }

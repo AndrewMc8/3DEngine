@@ -1,5 +1,6 @@
 #pragma once
 #include "Object.h"
+#include "Scene.h"
 #include "Math/Transform.h"
 #include "Components/Component.h"
 #include "Core/Serializable.h"
