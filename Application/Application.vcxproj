@@ -161,11 +161,18 @@
   <ItemGroup>
     <None Include="..\Build\Resources\materials\spot.mtl" />
     <None Include="..\Build\Resources\materials\wood.mtl" />
+    <None Include="..\Build\Resources\scenes\main.scn" />
     <None Include="..\Build\Resources\shaders\basic.frag" />
     <None Include="..\Build\Resources\shaders\basic.vert" />
-    <None Include="..\Build\Resources\shaders\light.frag" />
-    <None Include="..\Build\Resources\shaders\light.shdr" />
-    <None Include="..\Build\Resources\shaders\light.vert" />
+    <None Include="..\Build\Resources\shaders\flat.frag" />
+    <None Include="..\Build\Resources\shaders\flat.shdr" />
+    <None Include="..\Build\Resources\shaders\flat.vert" />
+    <None Include="..\Build\Resources\shaders\gouraud.frag" />
+    <None Include="..\Build\Resources\shaders\gouraud.shdr" />
+    <None Include="..\Build\Resources\shaders\gouraud.vert" />
+    <None Include="..\Build\Resources\shaders\phong.frag" />
+    <None Include="..\Build\Resources\shaders\phong.shdr" />
+    <None Include="..\Build\Resources\shaders\phong.vert" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Engine\Engine.vcxproj">
