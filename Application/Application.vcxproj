@@ -88,16 +88,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\SDL2-2.0.16\include;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\SDL2-2.0.16\include;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\SDL2-2.0.16\lib\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;
-SDL2main.lib
-;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\assimp\lib\$(Configuration);$(SolutionDir)ThirdParty\SDL2-2.0.16\lib\$(PlatformTarget);$(SolutionDir)ThirdParty\fmod\api\core\lib\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;fmod_vc.lib;assimp-vc142-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -108,7 +106,7 @@ SDL2main.lib
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\SDL2-2.0.16\include;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\SDL2-2.0.16\include;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -116,10 +114,8 @@ SDL2main.lib
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\SDL2-2.0.16\lib\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;
-SDL2main.lib
-;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\assimp\lib\$(Configuration);$(SolutionDir)ThirdParty\SDL2-2.0.16\lib\$(PlatformTarget);$(SolutionDir)ThirdParty\fmod\api\core\lib\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;fmod_vc.lib;assimp-vc142-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -128,16 +124,14 @@ SDL2main.lib
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\SDL2-2.0.16\include;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\SDL2-2.0.16\include;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\SDL2-2.0.16\lib\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;
-SDL2main.lib
-;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\assimp\lib\$(Configuration);$(SolutionDir)ThirdParty\SDL2-2.0.16\lib\$(PlatformTarget);$(SolutionDir)ThirdParty\fmod\api\core\lib\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;fmod_vc.lib;assimp-vc142-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -148,7 +142,7 @@ SDL2main.lib
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\SDL2-2.0.16\include;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)ThirdParty\assimp\include;$(SolutionDir)ThirdParty\glm;$(SolutionDir)ThirdParty\SDL2-2.0.16\include;$(SolutionDir)ThirdParty\glad\include;$(SolutionDir)ThirdParty\rapidjson\include\rapidjson;$(SolutionDir)ThirdParty\fmod\api\core\inc;$(SolutionDir)Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -156,10 +150,8 @@ SDL2main.lib
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\SDL2-2.0.16\lib\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;
-SDL2main.lib
-;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\assimp\lib\$(Configuration);$(SolutionDir)ThirdParty\SDL2-2.0.16\lib\$(PlatformTarget);$(SolutionDir)ThirdParty\fmod\api\core\lib\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;fmod_vc.lib;assimp-vc142-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -167,8 +159,13 @@ SDL2main.lib
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Build\Resources\materials\spot.mtl" />
+    <None Include="..\Build\Resources\materials\wood.mtl" />
     <None Include="..\Build\Resources\shaders\basic.frag" />
     <None Include="..\Build\Resources\shaders\basic.vert" />
+    <None Include="..\Build\Resources\shaders\light.frag" />
+    <None Include="..\Build\Resources\shaders\light.shdr" />
+    <None Include="..\Build\Resources\shaders\light.vert" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Engine\Engine.vcxproj">
